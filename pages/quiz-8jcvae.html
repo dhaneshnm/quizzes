@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-HWA4/hXRah6mbeVMAQgFCYa1zQ+WS0UUHUpvvNFBcMU='; base-uri 'none'; form-action 'none'">
+<title>Interpretability</title>
+<style>:root{--bg:#fff;--fg:#1b1b1f;--muted:#5c5c66;--card:#f4f4f6;--line:#d0d0d8;--accent:#0b57d0;--ok:#0f6b2f;--okbg:#e3f4e8;--bad:#a1121b;--badbg:#fbe5e6;--focus:#0b57d0;--cline:#8a8a96;--visited:#6b3fa0;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#ececf1;--muted:#a3a3ad;--card:#1e1e22;--line:#3a3a42;--accent:#8ab4f8;--ok:#7bd88f;--okbg:#14301c;--bad:#ff8a8a;--badbg:#3a1618;--focus:#8ab4f8;--cline:#6b6b76;--visited:#c58af9}}
+*{box-sizing:border-box}
+html{scroll-padding-top:3.5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main,footer{max-width:40rem;margin:0 auto;padding:0 16px}
+h1{font-size:1.6rem;line-height:1.2;margin:.25rem 0 .25rem}
+h2{font-size:1.15rem;margin:0 0 .75rem}
+.intro,.muted,footer{color:var(--muted)}
+.score{position:sticky;top:0;z-index:1;margin:0 -16px;padding:.5rem 16px;background:var(--bg);border-bottom:1px solid var(--line);font-weight:600}
+ol.qs,ol.src{padding:0;list-style:none}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 16px}
+.q h2 span{display:block;font-size:.85rem;font-weight:500;color:var(--muted)}
+.choices{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.c{display:flex;gap:.5rem;align-items:center;width:100%;min-height:44px;padding:.6rem .75rem;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--cline);border-radius:8px;cursor:pointer;flex-wrap:wrap}
+.c>span:not(.tag){flex:1;min-width:0;overflow-wrap:anywhere}
+.c .tag:empty{display:none}
+.c b{flex:none;width:1.5rem}
+.c .tag{margin-left:auto;font-weight:600;white-space:nowrap}
+.c:focus-visible,.fb:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.c[aria-disabled=true]{cursor:default}
+.c.right{border:2px solid var(--ok);background:var(--okbg)}
+.c.wrong{border:2px solid var(--bad);background:var(--badbg)}
+.right .tag{color:var(--ok)}.wrong .tag{color:var(--bad)}
+.fb{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.fb p{margin:0 0 .5rem}
+.v{font-weight:700}
+blockquote{margin:.5rem 0;padding:.25rem 0 .25rem .75rem;border-left:4px solid var(--line)}
+figure{margin:0}
+figcaption,.src li{font-size:.95rem}
+a{color:var(--accent);overflow-wrap:anywhere}
+a:visited{color:var(--visited)}
+.src li{padding:.5rem 0;border-top:1px solid var(--line)}
+.st{display:block;font-weight:600;font-size:.85rem}
+.end{font-size:1.15rem;font-weight:700}
+footer{padding:1.5rem 16px 2rem;font-size:.85rem}
+.eyebrow{margin:1.5rem 0 0;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.score a,.score a:visited{color:inherit;text-decoration:none}
+.end{padding:16px;border:2px solid var(--accent);border-radius:12px;text-align:center}
+.v.ok{color:var(--ok)}.v.no{color:var(--bad)}
+blockquote{border-left-color:var(--accent)}
+blockquote p::before{content:"\201C"}blockquote p::after{content:"\201D"}
+.q[data-done] h2 span::after{content:" \00b7  answered"}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">10 questions &middot; 7 readings</p>
+<h1>Interpretability</h1>
+<p class="intro">Tap an answer to check it and see the quote it comes from.</p>
+<noscript><p class="muted">Turn on JavaScript to check your answers. The questions and sources still work without it.</p></noscript>
+</header>
+<p class="score"><a id="next" href="#q1"><span id="score" aria-live="polite">0 of 10 answered &middot; 0 right</span></a></p>
+<ol class="qs" role="list">
+<li>
+<section class="q" id="q1" data-answer="0" aria-labelledby="q1h">
+<h2 id="q1h"><span>Question 1 of 10</span> According to MIT Technology Review, what did OpenAI use chain-of-thought monitoring to catch?</h2>
+<div class="choices" role="group" aria-labelledby="q1h">
+<button type="button" class="c" value="0"><b>A</b><span>A reasoning model cheating on coding tests</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>A model leaking its training data</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>A chatbot refusing safe requests</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>A model copying Anthropic&#39;s weights</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The article says OpenAI used CoT monitoring to catch a reasoning model cheating on coding tests.</p>
+<figure>
+<blockquote><p>OpenAI used this technique to catch one of its reasoning models cheating on coding tests.</p></blockquote>
+<figcaption>Source: <a href="https://www.technologyreview.com/2026/01/12/1130003/mechanistic-interpretability-ai-research-models-2026-breakthrough-technologies/amp/" target="_blank" rel="noopener noreferrer">Mechanistic interpretability: 10 Breakthrough Technologies 2026</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q2" data-answer="1" aria-labelledby="q2h">
+<h2 id="q2h"><span>Question 2 of 10</span> What does Goodfire preliminarily estimate about Qwen3-32B neuron poles?</h2>
+<div class="choices" role="group" aria-labelledby="q2h">
+<button type="button" class="c" value="0"><b>A</b><span>About 10% are polysemantic beyond repair</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Roughly 90% have one main job</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Exactly half respond only to negative activations</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Nearly all are dead neurons</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Goodfire estimates roughly 90% of Qwen3-32B neuron poles have one main job, often with related offshoots.</p>
+<figure>
+<blockquote><p>Goodfire estimates that roughly 90% of Qwen3-32B neuron poles have one main job, often with related offshoots.</p></blockquote>
+<figcaption>Source: <a href="https://trilogyai.substack.com/p/goodfire-interpretability-ai-alignment" target="_blank" rel="noopener noreferrer">Goodfire says neural networks are already clean</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q3" data-answer="2" aria-labelledby="q3h">
+<h2 id="q3h"><span>Question 3 of 10</span> In Goodfire&#39;s Qwen3-32B Santa experiment, what happened when a matched random set of neurons was removed?</h2>
+<div class="choices" role="group" aria-labelledby="q3h">
+<button type="button" class="c" value="0"><b>A</b><span>The Santa probability fell to about 6%</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>The model stopped producing text</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>The probability stayed near-certain</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>The model switched to a different language</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Random removals left the probability near-certain, unlike the eight selected Santa neurons.</p>
+<figure>
+<blockquote><p>Removing a matched random set of neurons from the same layers left that probability near-certain.</p></blockquote>
+<figcaption>Source: <a href="https://trilogyai.substack.com/p/goodfire-interpretability-ai-alignment" target="_blank" rel="noopener noreferrer">Goodfire says neural networks are already clean</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q4" data-answer="0" aria-labelledby="q4h">
+<h2 id="q4h"><span>Question 4 of 10</span> How often did Claude Opus 4.1 detect an injected concept even with Anthropic&#39;s best injection protocol?</h2>
+<div class="choices" role="group" aria-labelledby="q4h">
+<button type="button" class="c" value="0"><b>A</b><span>About 20% of the time</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>About 50% of the time</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>About 80% of the time</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Essentially always</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Anthropic stresses the introspective ability is unreliable, working only about 20% of the time.</p>
+<figure>
+<blockquote><p>Even using our best injection protocol, Claude Opus 4.1 only demonstrated this kind of awareness about 20% of the time.</p></blockquote>
+<figcaption>Source: <a href="https://anthropic.com/research/introspection" target="_blank" rel="noopener noreferrer">Emergent introspective awareness in LLMs \ Anthropic</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q5" data-answer="1" aria-labelledby="q5h">
+<h2 id="q5h"><span>Question 5 of 10</span> In Neel Nanda&#39;s case study, why did Claude 4.5 Sonnet appear to be 0% misaligned?</h2>
+<div class="choices" role="group" aria-labelledby="q5h">
+<button type="button" class="c" value="0"><b>A</b><span>Its training removed all harmful data</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Sonnet had realized when it was being tested</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>The evaluations were too easy to fail</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Sparse autoencoders had fixed it</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Sonnet recognized evaluations and was much better at this than earlier models, so the result was misleading.</p>
+<figure>
+<blockquote><p>Unfortunately, Sonnet had just realized when it was being tested and was vastly better at doing this than previous models.</p></blockquote>
+<figcaption>Source: <a href="https://far.ai/events/sessions/neel-nanda-our-pivot-to-pragmatic-interpretability" target="_blank" rel="noopener noreferrer">Our Pivot To Pragmatic Interpretability | FAR.AI</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q6" data-answer="1" aria-labelledby="q6h">
+<h2 id="q6h"><span>Question 6 of 10</span> What does Nanda&#39;s team now prioritize instead of complete model understanding?</h2>
+<div class="choices" role="group" aria-labelledby="q6h">
+<button type="button" class="c" value="0"><b>A</b><span>Building ever larger SAEs</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Work addressing critical paths to safe AGI</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Publishing only theoretical results</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Replacing interpretability with benchmarks</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The summary says the team prioritizes work addressing critical paths to safe AGI.</p>
+<figure>
+<blockquote><p>Rather than pursuing complete model understanding, the team now prioritizes work addressing critical paths to safe AGI.</p></blockquote>
+<figcaption>Source: <a href="https://far.ai/events/sessions/neel-nanda-our-pivot-to-pragmatic-interpretability" target="_blank" rel="noopener noreferrer">Our Pivot To Pragmatic Interpretability | FAR.AI</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q7" data-answer="0" aria-labelledby="q7h">
+<h2 id="q7h"><span>Question 7 of 10</span> What did &#39;Monitoring Monitorability&#39; find about chain-of-thought length and monitorability?</h2>
+<div class="choices" role="group" aria-labelledby="q7h">
+<button type="button" class="c" value="0"><b>A</b><span>Longer CoTs are typically more monitorable</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Longer CoTs are typically less monitorable</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>CoT length has no effect</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Only very short CoTs can be monitored</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The abstract reports that longer CoTs are typically more monitorable.</p>
+<figure>
+<blockquote><p>We study scaling trends with pre-training model size and inference-time compute, finding longer CoTs are typically more monitorable.</p></blockquote>
+<figcaption>Source: <a href="https://proceedings.mlr.press/v306/guan26h.html" target="_blank" rel="noopener noreferrer">Monitoring Monitorability</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q8" data-answer="2" aria-labelledby="q8h">
+<h2 id="q8h"><span>Question 8 of 10</span> What did DeepMind&#39;s mechanistic interpretability team report about sparse autoencoders (SAEs)?</h2>
+<div class="choices" role="group" aria-labelledby="q8h">
+<button type="button" class="c" value="0"><b>A</b><span>They beat linear probes at out-of-distribution harmful-intent detection</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>They matched linear probes exactly</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>They underperformed simpler linear probes at that task</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>They could not be trained on language models</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>SAEs underperformed linear probes, leading the team to deprioritize fundamental SAE research.</p>
+<figure>
+<blockquote><p>DeepMind&#39;s mechanistic interpretability team reports that sparse autoencoders (SAEs) underperformed simpler linear probes on out-of-distribution detection of harmful intent in user prompts.</p></blockquote>
+<figcaption>Source: <a href="https://www.longtermwiki.com/resources/244c1b93ef0a083c" target="_blank" rel="noopener noreferrer">Source: deprioritizing SAE research | Longterm Wiki</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q9" data-answer="1" aria-labelledby="q9h">
+<h2 id="q9h"><span>Question 9 of 10</span> According to the attached PDF, what is the core obstacle for mechanistic interpretability?</h2>
+<div class="choices" role="group" aria-labelledby="q9h">
+<button type="button" class="c" value="0"><b>A</b><span>Lack of GPU compute</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Polysemanticity, where one neuron fires for unrelated things</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Models refusing to answer questions</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Too few open-source models</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The PDF names polysemanticity as the core obstacle.</p>
+<figure>
+<blockquote><p>Core obstacle: polysemanticity, where one neuron fires for unrelated things.</p></blockquote>
+<figcaption>Source: AI-Interpretability-What-It-Is-and-the-Field-in-Oct-2026.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q10" data-answer="2" aria-labelledby="q10h">
+<h2 id="q10h"><span>Question 10 of 10</span> Why does the attached PDF call chain-of-thought monitoring &#39;adjacent&#39; to mechanistic interpretability?</h2>
+<div class="choices" role="group" aria-labelledby="q10h">
+<button type="button" class="c" value="0"><b>A</b><span>It uses sparse autoencoders</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>It only works on vision models</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It reads a text trace and not the computation</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It requires access to training data</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>CoT monitoring reads the model&#39;s text trace rather than its internal computation.</p>
+<figure>
+<blockquote><p>Chain-of-thought monitoring is adjacent, because it reads a text trace and not the computation.</p></blockquote>
+<figcaption>Source: AI-Interpretability-What-It-Is-and-the-Field-in-Oct-2026.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+</ol>
+<p class="end" id="end" hidden></p>
+<section aria-labelledby="srch">
+<h2 id="srch">Sources</h2>
+<p class="muted">Questions come only from sources the agent could read.</p>
+<ol class="src" role="list">
+<li id="s1"><a href="https://www.technologyreview.com/2026/01/12/1130003/mechanistic-interpretability-ai-research-models-2026-breakthrough-technologies/amp/" target="_blank" rel="noopener noreferrer">Mechanistic interpretability: 10 Breakthrough Technologies 2026</a>
+</li>
+<li id="s2"><a href="https://trilogyai.substack.com/p/goodfire-interpretability-ai-alignment" target="_blank" rel="noopener noreferrer">Goodfire says neural networks are already clean</a>
+</li>
+<li id="s3"><a href="https://anthropic.com/research/introspection" target="_blank" rel="noopener noreferrer">Emergent introspective awareness in LLMs \ Anthropic</a>
+</li>
+<li id="s4"><a href="https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf" target="_blank" rel="noopener noreferrer">https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf</a>
+<span class="st">Could not read:</span> <span>unsupported content type application/pdf</span></li>
+<li id="s5"><a href="https://far.ai/events/sessions/neel-nanda-our-pivot-to-pragmatic-interpretability" target="_blank" rel="noopener noreferrer">Our Pivot To Pragmatic Interpretability | FAR.AI</a>
+</li>
+<li id="s6"><a href="https://proceedings.mlr.press/v306/guan26h.html" target="_blank" rel="noopener noreferrer">Monitoring Monitorability</a>
+</li>
+<li id="s7"><a href="https://casrai.org/guides/chain-of-thought-monitorability" target="_blank" rel="noopener noreferrer">https://casrai.org/guides/chain-of-thought-monitorability</a>
+<span class="st">Could not read:</span> <span>Net::ReadTimeout with #&lt;TCPSocket:(closed)&gt;</span></li>
+<li id="s8"><a href="https://www.longtermwiki.com/resources/244c1b93ef0a083c" target="_blank" rel="noopener noreferrer">Source: deprioritizing SAE research | Longterm Wiki</a>
+</li>
+<li id="s9">AI-Interpretability-What-It-Is-and-the-Field-in-Oct-2026.pdf <span class="muted">(attachment)</span>
+</li>
+</ol>
+</section>
+</main>
+<footer><p>Made with rubyAgent</p></footer>
+<script>(function(){
+var qs=document.querySelectorAll(".q"),total=qs.length,done=0,right=0,
+score=document.getElementById("score"),next=document.getElementById("next"),end=document.getElementById("end");
+document.addEventListener("click",function(e){
+var b=e.target.closest(".c");if(!b)return;
+var q=b.closest(".q");if(q.hasAttribute("data-done"))return;
+var bs=q.querySelectorAll(".c"),a=+q.getAttribute("data-answer"),pick=+b.value,ok=pick===a;
+q.setAttribute("data-done","");
+bs.forEach(function(x){x.setAttribute("aria-disabled","true")});
+mark(bs[a],"right","\u2713 Correct");
+if(!ok)mark(b,"wrong","\u2717 Your answer");
+done++;if(ok)right++;
+var fb=q.querySelector(".fb");
+var v=fb.querySelector(".v");v.className="v "+(ok?"ok":"no");v.textContent=ok?"\u2713 Right.":"\u2717 Not quite. The answer is "+"ABCD"[a]+": "+bs[a].children[1].textContent+".";
+fb.hidden=false;fb.focus({preventScroll:true});
+score.textContent=done===total?"Done: "+right+" of "+total+" right":done+" of "+total+" answered \u00b7 "+right+" right";
+var u=document.querySelector(".q:not([data-done])");if(u)next.href="#"+u.id;else next.removeAttribute("href");
+if(done===total){end.textContent="You got "+right+" of "+total+" right. Each answer links to its reading, and the sources are below.";end.hidden=false}
+});
+function mark(x,c,t){x.classList.add(c);x.querySelector(".tag").textContent=t}
+})();
+</script>
+</body>
+</html>
