@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-HWA4/hXRah6mbeVMAQgFCYa1zQ+WS0UUHUpvvNFBcMU='; base-uri 'none'; form-action 'none'">
+<title>Something new</title>
+<style>:root{--bg:#fff;--fg:#1b1b1f;--muted:#5c5c66;--card:#f4f4f6;--line:#d0d0d8;--accent:#0b57d0;--ok:#0f6b2f;--okbg:#e3f4e8;--bad:#a1121b;--badbg:#fbe5e6;--focus:#0b57d0;--cline:#8a8a96;--visited:#6b3fa0;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#ececf1;--muted:#a3a3ad;--card:#1e1e22;--line:#3a3a42;--accent:#8ab4f8;--ok:#7bd88f;--okbg:#14301c;--bad:#ff8a8a;--badbg:#3a1618;--focus:#8ab4f8;--cline:#6b6b76;--visited:#c58af9}}
+*{box-sizing:border-box}
+html{scroll-padding-top:3.5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main,footer{max-width:40rem;margin:0 auto;padding:0 16px}
+h1{font-size:1.6rem;line-height:1.2;margin:.25rem 0 .25rem}
+h2{font-size:1.15rem;margin:0 0 .75rem}
+.intro,.muted,footer{color:var(--muted)}
+.score{position:sticky;top:0;z-index:1;margin:0 -16px;padding:.5rem 16px;background:var(--bg);border-bottom:1px solid var(--line);font-weight:600}
+ol.qs,ol.src{padding:0;list-style:none}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 16px}
+.q h2 span{display:block;font-size:.85rem;font-weight:500;color:var(--muted)}
+.choices{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.c{display:flex;gap:.5rem;align-items:center;width:100%;min-height:44px;padding:.6rem .75rem;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--cline);border-radius:8px;cursor:pointer;flex-wrap:wrap}
+.c>span:not(.tag){flex:1;min-width:0;overflow-wrap:anywhere}
+.c .tag:empty{display:none}
+.c b{flex:none;width:1.5rem}
+.c .tag{margin-left:auto;font-weight:600;white-space:nowrap}
+.c:focus-visible,.fb:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.c[aria-disabled=true]{cursor:default}
+.c.right{border:2px solid var(--ok);background:var(--okbg)}
+.c.wrong{border:2px solid var(--bad);background:var(--badbg)}
+.right .tag{color:var(--ok)}.wrong .tag{color:var(--bad)}
+.fb{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.fb p{margin:0 0 .5rem}
+.v{font-weight:700}
+blockquote{margin:.5rem 0;padding:.25rem 0 .25rem .75rem;border-left:4px solid var(--line)}
+figure{margin:0}
+figcaption,.src li{font-size:.95rem}
+a{color:var(--accent);overflow-wrap:anywhere}
+a:visited{color:var(--visited)}
+.src li{padding:.5rem 0;border-top:1px solid var(--line)}
+.st{display:block;font-weight:600;font-size:.85rem}
+.end{font-size:1.15rem;font-weight:700}
+footer{padding:1.5rem 16px 2rem;font-size:.85rem}
+.eyebrow{margin:1.5rem 0 0;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.score a,.score a:visited{color:inherit;text-decoration:none}
+.end{padding:16px;border:2px solid var(--accent);border-radius:12px;text-align:center}
+.v.ok{color:var(--ok)}.v.no{color:var(--bad)}
+blockquote{border-left-color:var(--accent)}
+blockquote p::before{content:"\201C"}blockquote p::after{content:"\201D"}
+.q[data-done] h2 span::after{content:" \00b7  answered"}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">10 questions &middot; 1 readings</p>
+<h1>Something new</h1>
+<p class="intro">Tap an answer to check it and see the quote it comes from.</p>
+<noscript><p class="muted">Turn on JavaScript to check your answers. The questions and sources still work without it.</p></noscript>
+</header>
+<p class="score"><a id="next" href="#q1"><span id="score" aria-live="polite">0 of 10 answered &middot; 0 right</span></a></p>
+<ol class="qs" role="list">
+<li>
+<section class="q" id="q1" data-answer="1" aria-labelledby="q1h">
+<h2 id="q1h"><span>Question 1 of 10</span> What two types of schedule does the text describe?</h2>
+<div class="choices" role="group" aria-labelledby="q1h">
+<button type="button" class="c" value="0"><b>A</b><span>Day schedule and night schedule</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Manager&#39;s schedule and maker&#39;s schedule</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Weekly schedule and monthly schedule</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Office schedule and remote schedule</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The text names the manager&#39;s schedule and the maker&#39;s schedule.</p>
+<figure>
+<blockquote><p>There are two types of schedule, which I&#39;ll call the manager&#39;s schedule and the maker&#39;s schedule.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q2" data-answer="1" aria-labelledby="q2h">
+<h2 id="q2h"><span>Question 2 of 10</span> Who is the manager&#39;s schedule for?</h2>
+<div class="choices" role="group" aria-labelledby="q2h">
+<button type="button" class="c" value="0"><b>A</b><span>Programmers</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Bosses</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Students</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Writers</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The text says the manager&#39;s schedule is for bosses.</p>
+<figure>
+<blockquote><p>The manager&#39;s schedule is for bosses.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q3" data-answer="0" aria-labelledby="q3h">
+<h2 id="q3h"><span>Question 3 of 10</span> How is the manager&#39;s schedule characterized?</h2>
+<div class="choices" role="group" aria-labelledby="q3h">
+<button type="button" class="c" value="0"><b>A</b><span>The schedule of command</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>The schedule of creativity</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>The schedule of rest</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>The schedule of learning</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>It is called the schedule of command.</p>
+<figure>
+<blockquote><p>It&#39;s the schedule of command.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q4" data-answer="1" aria-labelledby="q4h">
+<h2 id="q4h"><span>Question 4 of 10</span> According to the text, what can&#39;t you do well in units of an hour?</h2>
+<div class="choices" role="group" aria-labelledby="q4h">
+<button type="button" class="c" value="0"><b>A</b><span>Attend meetings</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Write or program</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Manage people</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Eat lunch</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Writing and programming don&#39;t fit into hour-long units.</p>
+<figure>
+<blockquote><p>You can&#39;t write or program well in units of an hour.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q5" data-answer="1" aria-labelledby="q5h">
+<h2 id="q5h"><span>Question 5 of 10</span> What are meetings like for someone on the maker&#39;s schedule?</h2>
+<div class="choices" role="group" aria-labelledby="q5h">
+<button type="button" class="c" value="0"><b>A</b><span>A welcome break</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>A disaster</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>A reward</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>A minor detail</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The text says meetings are a disaster for makers.</p>
+<figure>
+<blockquote><p>When you&#39;re operating on the maker&#39;s schedule, meetings are a disaster.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q6" data-answer="1" aria-labelledby="q6h">
+<h2 id="q6h"><span>Question 6 of 10</span> What programming metaphor is used for having a meeting on the maker&#39;s schedule?</h2>
+<div class="choices" role="group" aria-labelledby="q6h">
+<button type="button" class="c" value="0"><b>A</b><span>Compiling a program</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Throwing an exception</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Deleting a file</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Running a loop</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>A meeting is compared to throwing an exception.</p>
+<figure>
+<blockquote><p>For someone on the maker&#39;s schedule, having a meeting is like throwing an exception.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q7" data-answer="0" aria-labelledby="q7h">
+<h2 id="q7h"><span>Question 7 of 10</span> According to the text, when do problems arise?</h2>
+<div class="choices" role="group" aria-labelledby="q7h">
+<button type="button" class="c" value="0"><b>A</b><span>When the two schedules meet</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>When makers work at night</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>When there are no meetings</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>When managers take a day off</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Each schedule works fine alone; trouble comes when they meet.</p>
+<figure>
+<blockquote><p>Problems arise when they meet.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q8" data-answer="1" aria-labelledby="q8h">
+<h2 id="q8h"><span>Question 8 of 10</span> Which device does Y Combinator use to simulate the manager&#39;s schedule within the maker&#39;s?</h2>
+<div class="choices" role="group" aria-labelledby="q8h">
+<button type="button" class="c" value="0"><b>A</b><span>Daily standups</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Office hours</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Weekly all-hands</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Email only</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The classic device is office hours.</p>
+<figure>
+<blockquote><p>By using the classic device for simulating the manager&#39;s schedule within the maker&#39;s: office hours.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q9" data-answer="1" aria-labelledby="q9h">
+<h2 id="q9h"><span>Question 9 of 10</span> Why did the author program from dinner until about 3 am?</h2>
+<div class="choices" role="group" aria-labelledby="q9h">
+<button type="button" class="c" value="0"><b>A</b><span>He disliked mornings</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Because at night no one could interrupt him</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Because the office was closed</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Because of a deadline</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Night offered freedom from interruptions.</p>
+<figure>
+<blockquote><p>I used to program from dinner till about 3 am every day, because at night no one could interrupt me.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q10" data-answer="1" aria-labelledby="q10h">
+<h2 id="q10h"><span>Question 10 of 10</span> What do those on the maker&#39;s schedule ask of those on the manager&#39;s schedule?</h2>
+<div class="choices" role="group" aria-labelledby="q10h">
+<button type="button" class="c" value="0"><b>A</b><span>Cancel all meetings</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Understand the cost</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Work at night</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Hold more meetings</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Makers accept some meetings but want the cost understood.</p>
+<figure>
+<blockquote><p>All we ask from those on the manager&#39;s schedule is that they understand the cost.</p></blockquote>
+<figcaption>Source: Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span></figcaption>
+</figure>
+</div>
+</section>
+</li>
+</ol>
+<p class="end" id="end" hidden></p>
+<section aria-labelledby="srch">
+<h2 id="srch">Sources</h2>
+<p class="muted">Questions come only from sources the agent could read.</p>
+<ol class="src" role="list">
+<li id="s1">Maker-s-Schedule--Manager-s-Schedule.pdf <span class="muted">(attachment)</span>
+</li>
+</ol>
+</section>
+</main>
+<footer><p>Made with rubyAgent</p></footer>
+<script>(function(){
+var qs=document.querySelectorAll(".q"),total=qs.length,done=0,right=0,
+score=document.getElementById("score"),next=document.getElementById("next"),end=document.getElementById("end");
+document.addEventListener("click",function(e){
+var b=e.target.closest(".c");if(!b)return;
+var q=b.closest(".q");if(q.hasAttribute("data-done"))return;
+var bs=q.querySelectorAll(".c"),a=+q.getAttribute("data-answer"),pick=+b.value,ok=pick===a;
+q.setAttribute("data-done","");
+bs.forEach(function(x){x.setAttribute("aria-disabled","true")});
+mark(bs[a],"right","\u2713 Correct");
+if(!ok)mark(b,"wrong","\u2717 Your answer");
+done++;if(ok)right++;
+var fb=q.querySelector(".fb");
+var v=fb.querySelector(".v");v.className="v "+(ok?"ok":"no");v.textContent=ok?"\u2713 Right.":"\u2717 Not quite. The answer is "+"ABCD"[a]+": "+bs[a].children[1].textContent+".";
+fb.hidden=false;fb.focus({preventScroll:true});
+score.textContent=done===total?"Done: "+right+" of "+total+" right":done+" of "+total+" answered \u00b7 "+right+" right";
+var u=document.querySelector(".q:not([data-done])");if(u)next.href="#"+u.id;else next.removeAttribute("href");
+if(done===total){end.textContent="You got "+right+" of "+total+" right. Each answer links to its reading, and the sources are below.";end.hidden=false}
+});
+function mark(x,c,t){x.classList.add(c);x.querySelector(".tag").textContent=t}
+})();
+</script>
+</body>
+</html>
