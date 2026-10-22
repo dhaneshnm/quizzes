@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-HWA4/hXRah6mbeVMAQgFCYa1zQ+WS0UUHUpvvNFBcMU='; media-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Session 3 readings (Wed Oct 14): ridesharing and self-driving cars</title>
+<style>:root{--bg:#fff;--fg:#1b1b1f;--muted:#5c5c66;--card:#f4f4f6;--line:#d0d0d8;--accent:#0b57d0;--ok:#0f6b2f;--okbg:#e3f4e8;--bad:#a1121b;--badbg:#fbe5e6;--focus:#0b57d0;--cline:#8a8a96;--visited:#6b3fa0;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#ececf1;--muted:#a3a3ad;--card:#1e1e22;--line:#3a3a42;--accent:#8ab4f8;--ok:#7bd88f;--okbg:#14301c;--bad:#ff8a8a;--badbg:#3a1618;--focus:#8ab4f8;--cline:#6b6b76;--visited:#c58af9}}
+*{box-sizing:border-box}
+html{scroll-padding-top:3.5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main,footer{max-width:40rem;margin:0 auto;padding:0 16px}
+h1{font-size:1.6rem;line-height:1.2;margin:.25rem 0 .25rem}
+h2{font-size:1.15rem;margin:0 0 .75rem}
+.intro,.muted,footer{color:var(--muted)}
+.score{position:sticky;top:0;z-index:1;margin:0 -16px;padding:.5rem 16px;background:var(--bg);border-bottom:1px solid var(--line);font-weight:600}
+ol.qs,ol.src{padding:0;list-style:none}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 16px}
+.q h2 span{display:block;font-size:.85rem;font-weight:500;color:var(--muted)}
+.choices{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.c{display:flex;gap:.5rem;align-items:center;width:100%;min-height:44px;padding:.6rem .75rem;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--cline);border-radius:8px;cursor:pointer;flex-wrap:wrap}
+.c>span:not(.tag){flex:1;min-width:0;overflow-wrap:anywhere}
+.c .tag:empty{display:none}
+.c b{flex:none;width:1.5rem}
+.c .tag{margin-left:auto;font-weight:600;white-space:nowrap}
+.c:focus-visible,.fb:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.c[aria-disabled=true]{cursor:default}
+.c.right{border:2px solid var(--ok);background:var(--okbg)}
+.c.wrong{border:2px solid var(--bad);background:var(--badbg)}
+.right .tag{color:var(--ok)}.wrong .tag{color:var(--bad)}
+.fb{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.fb p{margin:0 0 .5rem}
+.v{font-weight:700}
+blockquote{margin:.5rem 0;padding:.25rem 0 .25rem .75rem;border-left:4px solid var(--line)}
+figure{margin:0}
+figcaption,.src li{font-size:.95rem}
+a{color:var(--accent);overflow-wrap:anywhere}
+a:visited{color:var(--visited)}
+.src li{padding:.5rem 0;border-top:1px solid var(--line)}
+.st{display:block;font-weight:600;font-size:.85rem}
+.end{font-size:1.15rem;font-weight:700}
+footer{padding:1.5rem 16px 2rem;font-size:.85rem}
+.eyebrow{margin:1.5rem 0 0;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.score a,.score a:visited{color:inherit;text-decoration:none}
+.end{padding:16px;border:2px solid var(--accent);border-radius:12px;text-align:center}
+.v.ok{color:var(--ok)}.v.no{color:var(--bad)}
+blockquote{border-left-color:var(--accent)}
+blockquote p::before{content:"\201C"}blockquote p::after{content:"\201D"}
+.q[data-done] h2 span::after{content:" \00b7  answered"}
+.explainer{margin:1.25rem 0}
+.explainer figcaption{margin:0 0 .5rem;font-weight:600;text-wrap:balance}
+.explainer video{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;background:#000;box-shadow:0 0 0 1px var(--line);border-radius:8px}
+.explainer p{margin:1rem 0 0;font-size:.95rem;color:var(--muted)}
+.explainer p a{padding:13px 0}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">12 questions &middot; 5 readings</p>
+<h1>Session 3 readings (Wed Oct 14): ridesharing and self-driving cars</h1>
+<p class="intro">Tap an answer to check it and see the quote it comes from.</p>
+<noscript><p class="muted">Turn on JavaScript to check your answers. The questions and sources still work without it.</p></noscript>
+</header>
+<figure class="explainer">
+<figcaption>Watch first: a short explainer of the readings</figcaption>
+<video controls playsinline preload="metadata" width="1280" height="720" src="explainer.mp4">
+<track kind="captions" src="explainer.vtt" srclang="en" label="English" default>
+</video>
+<p>Not playing here? <a href="explainer.mp4" target="_blank" rel="noopener noreferrer">Open the video file</a> (no&nbsp;captions).</p>
+</figure>
+<p class="score"><a id="next" href="#q1"><span id="score" aria-live="polite">0 of 12 answered &middot; 0 right</span></a></p>
+<ol class="qs" role="list">
+<li>
+<section class="q" id="q1" data-answer="0" aria-labelledby="q1h">
+<h2 id="q1h"><span>Question 1 of 12</span> According to Rayle and Flores, which set lists the three factors behind ridesharing&#39;s regulatory win in San Francisco?</h2>
+<div class="choices" role="group" aria-labelledby="q1h">
+<button type="button" class="c" value="0"><b>A</b><span>Political support for local industry, a dysfunctional taxi system, regulatory gray areas</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Venture funding, low fares, a strong taxi lobby</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Federal backing, driver unions, new insurance laws</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Public referendums, airport access, carpool lanes</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The authors name these three factors as the explanation for regulators&#39; support.</p>
+<figure>
+<blockquote><p>We found three main factors that explained why regulators were so supportive of ridesharing in San Francisco: political support for local industry, a dysfunctional taxi system and regulatory gray areas.</p></blockquote>
+<figcaption>Source: <a href="https://techcrunch.com/2016/04/17/the-3-factors-behind-uber-and-lyfts-regulatory-win-in-california" target="_blank" rel="noopener noreferrer">The 3 factors behind Uber and Lyft’s regulatory win in California | TechCrunch</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q2" data-answer="1" aria-labelledby="q2h">
+<h2 id="q2h"><span>Question 2 of 12</span> Why was the state regulator (the CPUC) expected to be more lenient toward ridesharing than the city?</h2>
+<div class="choices" role="group" aria-labelledby="q2h">
+<button type="button" class="c" value="0"><b>A</b><span>It was owned by the tech companies</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Regulating for-hire transportation was a minor concern next to its energy, telecom and oil and gas duties</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It had no authority over taxis or black cars</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It was newly created in 2012</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The article says for-hire transport was a small part of the CPUC&#39;s far larger responsibilities.</p>
+<figure>
+<blockquote><p>The state regulator (the CPUC) was likely to be more lenient too, since regulating for-hire transportation was a minor concern in relation to its far greater responsibilities for overseeing energy, telecommunications and oil and gas transmission.</p></blockquote>
+<figcaption>Source: <a href="https://techcrunch.com/2016/04/17/the-3-factors-behind-uber-and-lyfts-regulatory-win-in-california" target="_blank" rel="noopener noreferrer">The 3 factors behind Uber and Lyft’s regulatory win in California | TechCrunch</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q3" data-answer="1" aria-labelledby="q3h">
+<h2 id="q3h"><span>Question 3 of 12</span> What did the Uber test car&#39;s system do for the first part of the roughly six seconds after radar detected Elaine Herzberg, according to IEEE Spectrum?</h2>
+<div class="choices" role="group" aria-labelledby="q3h">
+<button type="button" class="c" value="0"><b>A</b><span>It braked immediately</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>It alternated between classifying her as a vehicle, a bike and an unknown object</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It handed control to the driver at once</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It classified her correctly as a pedestrian but ignored her</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The flipping classifications meant the car kept treating her as a new object and could not predict a collision.</p>
+<figure>
+<blockquote><p>A radar on the modified Volvo XC90 SUV first detected Herzberg roughly six seconds before the impact, followed quickly by the car’s laser-ranging lidar.</p></blockquote>
+<figcaption>Source: <a href="https://spectrum.ieee.org/ntsb-investigation-into-deadly-uber-selfdriving-car-crash-reveals-lax-attitude-toward-safety" target="_blank" rel="noopener noreferrer">NTSB Investigation Into Deadly Uber Self-Driving Car Crash Reveals Lax Attitude Toward Safety - IEEE Spectrum</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q4" data-answer="1" aria-labelledby="q4h">
+<h2 id="q4h"><span>Question 4 of 12</span> What did police investigators later establish about the Uber safety driver?</h2>
+<div class="choices" role="group" aria-labelledby="q4h">
+<button type="button" class="c" value="0"><b>A</b><span>She had been sleeping</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>She had likely been streaming a television show on her personal smartphone</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>She had been using Uber&#39;s navigation app</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>She had been impaired by drugs</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The article reports police found she was likely streaming a TV show on her phone.</p>
+<figure>
+<blockquote><p>Police investigators later established that the driver had likely been streaming a television show on her personal smartphone.</p></blockquote>
+<figcaption>Source: <a href="https://spectrum.ieee.org/ntsb-investigation-into-deadly-uber-selfdriving-car-crash-reveals-lax-attitude-toward-safety" target="_blank" rel="noopener noreferrer">NTSB Investigation Into Deadly Uber Self-Driving Car Crash Reveals Lax Attitude Toward Safety - IEEE Spectrum</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q5" data-answer="1" aria-labelledby="q5h">
+<h2 id="q5h"><span>Question 5 of 12</span> What change did Uber make to its safety-driver staffing in October 2017?</h2>
+<div class="choices" role="group" aria-labelledby="q5h">
+<button type="button" class="c" value="0"><b>A</b><span>It moved from one safety driver to two</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>It moved from two safety drivers to one</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It removed safety drivers entirely</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It began requiring drug checks</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Originally two drivers were required at all times; in October 2017 it switched to one.</p>
+<figure>
+<blockquote><p>Originally, the company had required two safety drivers in its cars at all times, with operators encouraged to report colleagues who violated its safety rules.</p></blockquote>
+<figcaption>Source: <a href="https://spectrum.ieee.org/ntsb-investigation-into-deadly-uber-selfdriving-car-crash-reveals-lax-attitude-toward-safety" target="_blank" rel="noopener noreferrer">NTSB Investigation Into Deadly Uber Self-Driving Car Crash Reveals Lax Attitude Toward Safety - IEEE Spectrum</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q6" data-answer="1" aria-labelledby="q6h">
+<h2 id="q6h"><span>Question 6 of 12</span> What did ABC7 say Cruise initially shared with state regulators after the October 2023 incident?</h2>
+<div class="choices" role="group" aria-labelledby="q6h">
+<button type="button" class="c" value="0"><b>A</b><span>A full video with commentary</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>An edited video that omitted the dragging</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Only written statements</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>No footage at all</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>ABC7 says the edited video left out the dragging, which was seen as a likely deliberate omission.</p>
+<figure>
+<blockquote><p>Cruise initially shared an edited video with state regulators that omitted the dragging.</p></blockquote>
+<figcaption>Source: <a href="https://abc7news.com/post/general-motors-cruise-how-gms-robotaxi-bet-derailed-turned-industry-cautionary-tale-driverless-tomorrow/16801974/" target="_blank" rel="noopener noreferrer">How GM&#39;s Cruise robotaxi bet derailed and turned into industry cautionary tale | Watch Episode 2 of &#39; A Driverless Tomorrow&#39; - ABC7 San Francisco</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q7" data-answer="2" aria-labelledby="q7h">
+<h2 id="q7h"><span>Question 7 of 12</span> According to ABC7, which body controlled the ability to charge the public for robotaxi rides?</h2>
+<div class="choices" role="group" aria-labelledby="q7h">
+<button type="button" class="c" value="0"><b>A</b><span>The NHTSA</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>The California DMV</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>The California Public Utilities Commission (CPUC)</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>The San Francisco Board of Supervisors</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>The CPUC held the authority over fares and allowed both Cruise and Waymo to charge.</p>
+<figure>
+<blockquote><p>The ability to charge the public for rides was in the hands of the California Public Utilities Commission (CPUC).</p></blockquote>
+<figcaption>Source: <a href="https://abc7news.com/post/general-motors-cruise-how-gms-robotaxi-bet-derailed-turned-industry-cautionary-tale-driverless-tomorrow/16801974/" target="_blank" rel="noopener noreferrer">How GM&#39;s Cruise robotaxi bet derailed and turned into industry cautionary tale | Watch Episode 2 of &#39; A Driverless Tomorrow&#39; - ABC7 San Francisco</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q8" data-answer="1" aria-labelledby="q8h">
+<h2 id="q8h"><span>Question 8 of 12</span> When did General Motors acquire Cruise, and for roughly how much, per ABC7?</h2>
+<div class="choices" role="group" aria-labelledby="q8h">
+<button type="button" class="c" value="0"><b>A</b><span>2014, for $500 million</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>2016, for over $1 billion</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>2018, for $2 billion</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>2020, for over $5 billion</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>ABC7 states GM acquired Cruise in 2016 for over $1 billion.</p>
+<figure>
+<blockquote><p>Just two years later, in 2016, General Motors acquired Cruise for over $1 billion.</p></blockquote>
+<figcaption>Source: <a href="https://abc7news.com/post/general-motors-cruise-how-gms-robotaxi-bet-derailed-turned-industry-cautionary-tale-driverless-tomorrow/16801974/" target="_blank" rel="noopener noreferrer">How GM&#39;s Cruise robotaxi bet derailed and turned into industry cautionary tale | Watch Episode 2 of &#39; A Driverless Tomorrow&#39; - ABC7 San Francisco</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q9" data-answer="1" aria-labelledby="q9h">
+<h2 id="q9h"><span>Question 9 of 12</span> What happened to Uber&#39;s self-driving program after the Tempe crash, according to Timothy B. Lee?</h2>
+<div class="choices" role="group" aria-labelledby="q9h">
+<button type="button" class="c" value="0"><b>A</b><span>It was spun off as an independent company</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>It never regained momentum and was sold off at a bargain price</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It became the market leader</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It was merged with Waymo</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Lee compares Cruise&#39;s risk of paralysis to Uber&#39;s program, which was eventually sold cheaply.</p>
+<figure>
+<blockquote><p>The project never regained its early momentum and was eventually sold off at a bargain price.</p></blockquote>
+<figcaption>Source: <a href="https://www.understandingai.org/p/kyle-vogt-exits-cruise-leaving-waymo" target="_blank" rel="noopener noreferrer">Kyle Vogt exits Cruise, leaving Waymo as the clear robotaxi leader</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q10" data-answer="0" aria-labelledby="q10h">
+<h2 id="q10h"><span>Question 10 of 12</span> Why does Lee think Waymo is better placed than Cruise to survive financially?</h2>
+<div class="choices" role="group" aria-labelledby="q10h">
+<button type="button" class="c" value="0"><b>A</b><span>Its parent, Alphabet, has much deeper pockets than GM</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>It charges higher fares</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>It has no regulators to answer to</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>It is funded by the government</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Lee contrasts Alphabet&#39;s deep pockets with GM&#39;s mounting losses on Cruise.</p>
+<figure>
+<blockquote><p>Moreover, Waymo’s corporate parent, Alphabet, has much deeper pockets than GM.</p></blockquote>
+<figcaption>Source: <a href="https://www.understandingai.org/p/kyle-vogt-exits-cruise-leaving-waymo" target="_blank" rel="noopener noreferrer">Kyle Vogt exits Cruise, leaving Waymo as the clear robotaxi leader</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q11" data-answer="2" aria-labelledby="q11h">
+<h2 id="q11h"><span>Question 11 of 12</span> How did Sunil Paul&#39;s Sidecar structure payments to operate in a regulatory gray area?</h2>
+<div class="choices" role="group" aria-labelledby="q11h">
+<button type="button" class="c" value="0"><b>A</b><span>Fixed metered fares</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>Monthly subscriptions</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>Donation-based payments</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>Free rides funded by ads</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Paul says the payment system was donation based, like carpooling and Homobiles.</p>
+<figure>
+<blockquote><p>Our payment system was donation based, like carpooling and Homobiles.</p></blockquote>
+<figcaption>Source: <a href="https://sunilpaul.medium.com/the-untold-story-of-ridesharing-part-iii-the-birth-of-sidecar-and-ridesharing-9f6e6c706d8d" target="_blank" rel="noopener noreferrer">The Untold Story of Ridesharing — Part III: The Birth of Sidecar and Ridesharing</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+<li>
+<section class="q" id="q12" data-answer="0" aria-labelledby="q12h">
+<h2 id="q12h"><span>Question 12 of 12</span> When did Sidecar launch, according to Sunil Paul?</h2>
+<div class="choices" role="group" aria-labelledby="q12h">
+<button type="button" class="c" value="0"><b>A</b><span>February 2012</span><span class="tag"></span></button>
+<button type="button" class="c" value="1"><b>B</b><span>March 2010</span><span class="tag"></span></button>
+<button type="button" class="c" value="2"><b>C</b><span>June 2013</span><span class="tag"></span></button>
+<button type="button" class="c" value="3"><b>D</b><span>December 2011</span><span class="tag"></span></button>
+</div>
+<div class="fb" tabindex="-1" hidden>
+<p class="v"></p>
+<p>Paul says Sidecar was introduced in February 2012 and was an instant hit.</p>
+<figure>
+<blockquote><p>We introduced Sidecar in February 2012 and it was an instant hit.</p></blockquote>
+<figcaption>Source: <a href="https://sunilpaul.medium.com/the-untold-story-of-ridesharing-part-iii-the-birth-of-sidecar-and-ridesharing-9f6e6c706d8d" target="_blank" rel="noopener noreferrer">The Untold Story of Ridesharing — Part III: The Birth of Sidecar and Ridesharing</a></figcaption>
+</figure>
+</div>
+</section>
+</li>
+</ol>
+<p class="end" id="end" hidden></p>
+<section aria-labelledby="srch">
+<h2 id="srch">Sources</h2>
+<p class="muted">Questions come only from sources the agent could read.</p>
+<ol class="src" role="list">
+<li id="s1"><a href="https://techcrunch.com/2016/04/17/the-3-factors-behind-uber-and-lyfts-regulatory-win-in-california" target="_blank" rel="noopener noreferrer">The 3 factors behind Uber and Lyft’s regulatory win in California | TechCrunch</a>
+</li>
+<li id="s2"><a href="https://spectrum.ieee.org/ntsb-investigation-into-deadly-uber-selfdriving-car-crash-reveals-lax-attitude-toward-safety" target="_blank" rel="noopener noreferrer">NTSB Investigation Into Deadly Uber Self-Driving Car Crash Reveals Lax Attitude Toward Safety - IEEE Spectrum</a>
+</li>
+<li id="s3"><a href="https://abc7news.com/post/general-motors-cruise-how-gms-robotaxi-bet-derailed-turned-industry-cautionary-tale-driverless-tomorrow/16801974/" target="_blank" rel="noopener noreferrer">How GM&#39;s Cruise robotaxi bet derailed and turned into industry cautionary tale | Watch Episode 2 of &#39; A Driverless Tomorrow&#39; - ABC7 San Francisco</a>
+</li>
+<li id="s4"><a href="https://www.understandingai.org/p/kyle-vogt-exits-cruise-leaving-waymo" target="_blank" rel="noopener noreferrer">Kyle Vogt exits Cruise, leaving Waymo as the clear robotaxi leader</a>
+</li>
+<li id="s5"><a href="https://sunilpaul.medium.com/the-untold-story-of-ridesharing-part-iii-the-birth-of-sidecar-and-ridesharing-9f6e6c706d8d" target="_blank" rel="noopener noreferrer">The Untold Story of Ridesharing — Part III: The Birth of Sidecar and Ridesharing</a>
+</li>
+</ol>
+</section>
+</main>
+<footer><p>Made with rubyAgent</p></footer>
+<script>(function(){
+var qs=document.querySelectorAll(".q"),total=qs.length,done=0,right=0,
+score=document.getElementById("score"),next=document.getElementById("next"),end=document.getElementById("end");
+document.addEventListener("click",function(e){
+var b=e.target.closest(".c");if(!b)return;
+var q=b.closest(".q");if(q.hasAttribute("data-done"))return;
+var bs=q.querySelectorAll(".c"),a=+q.getAttribute("data-answer"),pick=+b.value,ok=pick===a;
+q.setAttribute("data-done","");
+bs.forEach(function(x){x.setAttribute("aria-disabled","true")});
+mark(bs[a],"right","\u2713 Correct");
+if(!ok)mark(b,"wrong","\u2717 Your answer");
+done++;if(ok)right++;
+var fb=q.querySelector(".fb");
+var v=fb.querySelector(".v");v.className="v "+(ok?"ok":"no");v.textContent=ok?"\u2713 Right.":"\u2717 Not quite. The answer is "+"ABCD"[a]+": "+bs[a].children[1].textContent+".";
+fb.hidden=false;fb.focus({preventScroll:true});
+score.textContent=done===total?"Done: "+right+" of "+total+" right":done+" of "+total+" answered \u00b7 "+right+" right";
+var u=document.querySelector(".q:not([data-done])");if(u)next.href="#"+u.id;else next.removeAttribute("href");
+if(done===total){end.textContent="You got "+right+" of "+total+" right. Each answer links to its reading, and the sources are below.";end.hidden=false}
+});
+function mark(x,c,t){x.classList.add(c);x.querySelector(".tag").textContent=t}
+})();
+</script>
+</body>
+</html>
