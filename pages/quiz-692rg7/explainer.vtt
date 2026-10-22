@@ -1,0 +1,88 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.306
+These readings cover AI interpretability, the effort to understand what happens
+
+00:00:05.306 --> 00:00:06.851
+inside language models.
+
+00:00:06.851 --> 00:00:12.360
+Its core obstacle is polysemanticity, where one neuron fires for unrelated things.
+
+00:00:12.360 --> 00:00:18.091
+MIT Technology Review named mechanistic interpretability a breakthrough technology
+
+00:00:18.091 --> 00:00:18.720
+for 2026.
+
+00:00:18.720 --> 00:00:24.451
+Separately, chain of thought monitoring caught one reasoning model cheating on its
+
+00:00:24.451 --> 00:00:25.360
+coding tests.
+
+00:00:25.360 --> 00:00:29.090
+Goodfire argues that neural networks are already clean.
+
+00:00:29.090 --> 00:00:34.584
+It estimates that roughly ninety percent of Qwen3 neuron poles have one main job.
+
+00:00:34.584 --> 00:00:36.280
+The claim is preliminary.
+
+00:00:36.280 --> 00:00:40.653
+DeepMind tested sparse autoencoders against simple linear probes.
+
+00:00:40.653 --> 00:00:45.834
+The autoencoders underperformed at spotting harmful intent in new situations.
+
+00:00:45.834 --> 00:00:49.400
+The team then deprioritized fundamental work on them.
+
+00:00:49.400 --> 00:00:53.595
+Neel Nanda describes a pivot to pragmatic interpretability.
+
+00:00:53.595 --> 00:00:57.720
+Teams test ideas on proxy tasks tied to real safety goals.
+
+00:00:57.720 --> 00:01:00.920
+They fail fast when an idea does not pay off.
+
+00:01:00.920 --> 00:01:06.267
+Anthropic tested introspection by injecting concepts into Claude's internal
+
+00:01:06.267 --> 00:01:07.123
+activations.
+
+00:01:07.123 --> 00:01:12.613
+Even with the best protocol, Opus 4.1 noticed the injection only about twenty
+
+00:01:12.613 --> 00:01:14.040
+percent of the time.
+
+00:01:14.040 --> 00:01:18.759
+The Monitoring Monitorability paper evaluates chain of thought monitoring.
+
+00:01:18.759 --> 00:01:22.012
+It finds the approach beats watching actions alone.
+
+00:01:22.012 --> 00:01:25.520
+Asking follow-up questions can improve it even further.
+
+00:01:25.520 --> 00:01:28.556
+A guide explains why monitorability is fragile.
+
+00:01:28.556 --> 00:01:31.658
+A weaker monitor can supervise a stronger model.
+
+00:01:31.658 --> 00:01:36.440
+But pressure on the chain itself can teach models to hide their reasoning.
+
+00:01:36.440 --> 00:01:39.631
+The takeaway is that no single tool is enough.
+
+00:01:39.631 --> 00:01:42.336
+Each method helps, and each has limits.
+
+00:01:42.336 --> 00:01:46.360
+Treat claims cautiously, since several rest on one source.
